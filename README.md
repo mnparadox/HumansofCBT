@@ -3,227 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoC Website</title>
+    <title>Web Dài Cuộn Xuống</title>
     <style>
-        /* Reset mặc định */
+        /* CSS: Định dạng toàn bộ trang */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body toàn trang */
         body {
             font-family: Arial, sans-serif;
-        }
-        /* header cho trang */
-        .header {
-            width: 100%;
-            position: relative;
-        }
-
-        /* Banner */
-        .banner {
-            background-color: #4CAF50;
+            background-color: black;
             color: white;
-            text-align: center;
-            padding: 30px 0;
+            scroll-behavior: smooth;
         }
 
-        .banner h1 {
-            font-size: 2rem;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-        .navbar ul {
-            list-style: none;
+        /* Định dạng section */
+        .section {
+            width: 100%;
+            height: 100vh; /* Chiều cao bằng màn hình */
             display: flex;
             justify-content: center;
-        }
-
-        .navbar li {
-            margin: 0 15px;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            padding: 10px 15px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        /* Container chính */
-        .content-container {
-            display: flex;
-            justify-content: space-between;
+            align-items: center;
+            text-align: center;
             padding: 20px;
         }
 
-        /* Slideshow chính bên trái */
-        .slideshow-container {
-            flex: 1.5;
-            height: 60vh;
-            margin-right: 20px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #ccc;
-            border-radius: 10px;
+        /* Nền màu khác nhau cho từng section */
+        #about { background-color: #1a1a1a; }
+        #gallery { background-color: #333333; }
+        #team { background-color: #4d4d4d; }
+        #footer { background-color: #666666; }
+
+        /* Button cuộn mượt */
+        .scroll-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
         }
 
-        .slides {
-            width: 100%;
-            height: 100%;
-            display: none;
+        .scroll-button:hover {
+            background-color: #45a049;
         }
-
-        .slideshow-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .active {
-            display: block;
-        }
-
-        /* Khung nhỏ bên phải */
-        .side-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .small-box {
-            flex: 1;
-            height: 28vh;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .small-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        /* chân trang*/
-
-        .footer {
-        background-color: #333;
-        color: white;
-        padding: 20px 10px; 
-        width: 100%;
-        }
-        .footer-container { 
-        display: flex; 
-        justify-content: space-between; /*Đẩy các nội dung vào đúng vị trí*/
-        align-items: center; 
-        max-width: 1200px; 
-        margin: 0 auto; 
-        }
-        .left-content {
-    flex: 1;
-}
-
-.center-content {
-    flex: 2;
-    text-align: center; /* Căn giữa slogan */
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.right-content {
-    flex: 1;
-    text-align: right; /* Căn phải thông tin liên hệ */
-}
-
-.footer-logo {
-    max-width: 80px; /* Giới hạn kích thước logo */
-    height: auto;
-}
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="banner">
-            <h1>Welcome to Humans of CBT</h1>
-        </div>
-         <nav class="navbar">
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#about">Về HoC</a></li>
-                <li><a href="#projects">Dự án</a></li>
-                <li><a href="#activities">Hoạt động</a></li>
-                <li><a href="#team">Đội ngũ HoC</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Phần 1: Giới thiệu -->
+    <section id="about" class="section">
+        <h1>Welcome to HoC</h1>
+        <p>Giới thiệu về Humans of CBT</p>
+        <button class="scroll-button" onclick="scrollToSection('gallery')">Xem Gallery</button>
+    </section>
 
-    <!-- Main Content -->
-    <div class="content-container">
-        <!-- Slideshow bên trái -->
-        <div class="slideshow-container">
-            <img src="https://via.placeholder.com/600x400" class="slides active" alt="Dự án 1">
-            <img src="https://via.placeholder.com/600x400" class="slides" alt="Dự án 2">
-            <img src="https://via.placeholder.com/600x400" class="slides" alt="Dự án 3">
-        </div>
+    <!-- Phần 2: Gallery -->
+    <section id="gallery" class="section">
+        <h1>HoC's Gallery</h1>
+        <p>Khám phá những khoảnh khắc đẹp!</p>
+        <button class="scroll-button" onclick="scrollToSection('team')">Xem Đội Ngũ</button>
+    </section>
 
-        <!-- Khung bên phải -->
-        <div class="side-container">
-            <div class="small-box">
-                <img src="https://via.placeholder.com/300x200" alt="TikTok nổi bật">
-            </div>
-            <div class="small-box">
-                <img src="https://via.placeholder.com/300x200" alt="Instagram nổi bật">
-            </div>
-        </div>
-    </div>
+    <!-- Phần 3: Our Team -->
+    <section id="team" class="section">
+        <h1>Our Team</h1>
+        <p>Gặp gỡ các thành viên của chúng tôi.</p>
+        <button class="scroll-button" onclick="scrollToSection('footer')">Liên hệ</button>
+    </section>
 
-    <!-- JavaScript for Slideshow -->
+    <!-- Phần 4: Footer -->
+    <section id="footer" class="section">
+        <h1>Contact Us</h1>
+        <p>Email: hocclub@example.com | Phone: +84 123 456 789</p>
+    </section>
+
+    <!-- JavaScript -->
     <script>
-        let slideIndex = 0;
-
-        function showSlides() {
-            let slides = document.querySelectorAll('.slides');
-            slides.forEach(slide => slide.classList.remove('active'));
-            slideIndex = (slideIndex + 1) % slides.length;
-            slides[slideIndex].classList.add('active');
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
         }
-
-        setInterval(showSlides, 3000); // Chuyển slide mỗi 3 giây
     </script>
-    <!--Các nội dung chân trang-->
-    <footer class="footer">
-    <div class="footer-container">
-        <!-- Logo bên trái -->
-        <div class="left-content">
-            <img src="logo.png" alt="HoC Logo" class="footer-logo">
-        </div>
-
-        <!-- Slogan ở giữa -->
-        <div class="center-content">
-            <p>Inspire, Lead, and Innovate</p>
-        </div>
-
-        <!-- Thông tin liên hệ bên phải -->
-        <div class="right-content">
-            <p>Email: hocclub@example.com</p>
-            <p>Phone: +84 123 456 789</p>
-        </div>
-    </div>
-</footer>
 </body>
 </html>
