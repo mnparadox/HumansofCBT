@@ -3,122 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HoC Gallery</title>
-    <style>
-        /* Reset cơ bản */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Banner */
-        .banner {
-            width: 1470px;
-            height: 340px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            background-color: black;
-        }
-
-        .slides-container {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            animation: slide 8s infinite;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            transition: transform 1s ease-in-out;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Keyframes for animation */
-        @keyframes slide {
-            0%, 20% { transform: translateX(0); }
-            25%, 45% { transform: translateX(-100%); }
-            50%, 70% { transform: translateX(-200%); }
-            75%, 100% { transform: translateX(0); }
-        }
-
-        .info {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            display: flex;
-            gap: 15px;
-            z-index: 10;
-        }
-
-        .info a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .info a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Footer */
-        .footer {
-            width: 1470px;
-            height: 340px;
-            background-color: #191414;
-            color: #ccc;
-            text-align: center;
-            line-height: 340px;
-            margin: 0 auto;
-        }
-    </style>
+    <title>HoC Club</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Banner -->
-    <header class="banner">
-        <div class="slides-container">
-            <div class="slide"><img src="https://via.placeholder.com/1470x340" alt="Slide 1"></div>
-            <div class="slide"><img src="https://via.placeholder.com/1470x340/ff7f7f" alt="Slide 2"></div>
-            <div class="slide"><img src="https://via.placeholder.com/1470x340/7f7fff" alt="Slide 3"></div>
-        </div>
-        <div class="info">
-            <a href="#about">Về HoC</a>
-            <a href="#team">Đội ngũ</a>
-            <a href="#gallery">Our Gallery</a>
-        </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">HoC Logo</div>
+        <ul class="nav-links">
+            <li><a href="#about">About HoC</a></li>
+            <li><a href="#gallery">HoC Gallery</a></li>
+            <li><a href="#projects">HoC Project</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#footer">Footer</a></li>
+        </ul>
+    </nav>
+
+    <!-- Poster Section -->
+    <header class="poster">
+        <h1>Welcome to HoC Club</h1>
+        <p>Inspiring Creativity and Innovation</p>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <section id="about" class="section">
-            <h2>Giới thiệu HoC</h2>
-            <p>Humans of CBT là một cộng đồng dành cho việc kết nối và sáng tạo...</p>
-        </section>
-    </main>
+    <!-- About HoC Section -->
+    <section id="about" class="about">
+        <h2>About HoC</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Discover the story of our club and our mission to empower creativity and innovation.</p>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2024 HoC Club | Contact: hocclub@example.com</p>
+    <!-- HoC Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Humans of CBT Gallery</h2>
+        <div class="gallery-content">
+            <img src="vertical.jpg" alt="Vertical Image" class="vertical-image">
+            <div class="horizontal-images">
+                <img src="horizontal1.jpg" alt="Horizontal Image 1">
+                <img src="horizontal2.jpg" alt="Horizontal Image 2">
+                <img src="horizontal3.jpg" alt="Horizontal Image 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- HoC Projects Section -->
+    <section id="projects" class="projects">
+        <h2>HoC Project</h2>
+        <div class="project-content">
+            <div class="project-info">
+                <h3>Project Name</h3>
+                <p>Purpose: To showcase our commitment to innovation and teamwork.</p>
+                <p>Production Date: <span>January 2025</span></p>
+                <p>Team: <span>Team HoC</span></p>
+            </div>
+            <div class="project-video">
+                <video src="project-video.mp4" muted autoplay loop></video>
+                <div class="overlay">Hover to see more!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="team">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <!-- Example Team Member -->
+            <div class="member">
+                <img src="member1.jpg" alt="Team Member">
+                <p>Member Name</p>
+            </div>
+            <!-- Repeat 50 members -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">HoC Logo</div>
+            <div class="social-links">
+                <a href="#">Email</a>
+                <a href="#">TikTok</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
