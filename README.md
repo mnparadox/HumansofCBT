@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +20,8 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #fff;
             color: #333;
+            height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
+            overflow-x: hidden; /* Ngăn cuộn ngang */
         }
 
         /* Điều chỉnh cho Navigation Bar */
@@ -29,7 +30,12 @@
             justify-content: space-between;
             align-items: center;
             background-color: #111;
-            padding: 10px 20px;
+            padding: 20px 40px; /* Thêm padding cho navbar */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Đảm bảo navbar luôn ở trên cùng */
         }
 
         .nav-logo {
@@ -62,9 +68,16 @@
         /* Section Poster */
         .poster {
             background: url('poster-background.jpg') no-repeat center center/cover;
+            height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
             color: #fff;
             text-align: center;
             padding: 100px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            margin-top: 60px; /* Đẩy nội dung xuống dưới navbar */
         }
 
         .poster h1 {
@@ -79,7 +92,7 @@
 
         /* About HoC Section */
         .about {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: #f4f4f4;
             text-align: center;
         }
@@ -98,7 +111,7 @@
 
         /* HoC Gallery Section */
         .gallery {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: #fff;
             text-align: center;
         }
@@ -113,11 +126,13 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .gallery .vertical-image {
-            width: 300px;
-            height: 500px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -129,15 +144,16 @@
         }
 
         .gallery .horizontal-images img {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
         }
 
         /* HoC Projects Section */
         .projects {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: #f4f4f4;
             text-align: center;
         }
@@ -149,13 +165,15 @@
 
         .project-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .project-info {
-            max-width: 500px;
+            max-width: 600px;
             text-align: left;
         }
 
@@ -171,7 +189,8 @@
 
         .project-video {
             position: relative;
-            max-width: 600px;
+            width: 100%;
+            max-width: 800px;
         }
 
         .project-video video {
@@ -197,7 +216,7 @@
 
         /* Our Team Section */
         .team {
-            padding: 60px 20px;
+            padding: 80px 20px;
             background-color: #fff;
             text-align: center;
         }
@@ -209,8 +228,9 @@
 
         .team-members {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 30px;
+            margin-top: 20px;
         }
 
         .member {
@@ -260,6 +280,94 @@
         .social-links a:hover {
             color: #ff9f00;
         }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">HoC Logo</div>
+        <ul class="nav-links">
+            <li><a href="#about">About HoC</a></li>
+            <li><a href="#gallery">HoC Gallery</a></li>
+            <li><a href="#projects">HoC Project</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#footer">Footer</a></li>
+        </ul>
+    </nav>
+
+    <!-- Poster Section -->
+    <header class="poster">
+        <h1>Welcome to HoC Club</h1>
+        <p>Inspiring Creativity and Innovation</p>
+    </header>
+
+    <!-- About HoC Section -->
+    <section id="about" class="about">
+        <h2>About HoC</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Discover the story of our club and our mission to empower creativity and innovation.</p>
+    </section>
+
+    <!-- HoC Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Humans of CBT Gallery</h2>
+        <div class="gallery-content">
+            <img src="vertical.jpg" alt="Vertical Image" class="vertical-image">
+            <div class="horizontal-images">
+                <img src="horizontal1.jpg" alt="Horizontal Image 1">
+                <img src="horizontal2.jpg" alt="Horizontal Image 2">
+                <img src="horizontal3.jpg" alt="Horizontal Image 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- HoC Projects Section -->
+    <section id="projects" class="projects">
+        <h2>HoC Project</h2>
+        <div class="project-content">
+            <div class="project-info">
+                <h3>Project Name</h3>
+                <p>Purpose: To showcase our commitment to innovation and teamwork.</p>
+                <p>Production Date: <span>January 2025</span></p>
+                <p>Team: <span>Team HoC</span></p>
+            </div>
+            <div class="project-video">
+                <video src="project-video.mp4" muted autoplay loop></video>
+                <div class="overlay">Hover to see more!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="team">
+        <h2>Our Team</h2>
+        <div class="team-members">
+            <div class="member">
+                <img src="member1.jpg" alt="Team Member">
+                <p>Member Name</p>
+            </div>
+            <div class="member">
+                <img src="member2.jpg" alt="Team Member">
+                <p>Member Name</p>
+            </div>
+            <!-- Add more members as needed -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">HoC Logo</div>
+            <div class="social-links">
+                <a href="#">Email</a>
+                <a href="#">TikTok</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
     </style>
 </head>
 <body>
